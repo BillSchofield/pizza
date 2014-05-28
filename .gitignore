@@ -1,5 +1,8 @@
 *.class
 
+# gradle
+.gradle/
+
 # IntelliJ
 .idea/
 *.iml
