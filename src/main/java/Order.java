@@ -4,7 +4,7 @@ public class Order {
     private int quantity;
 
     public Order(OrderTaker orderTaker) {
-        this.quantity = orderTaker.invoke();
+        this.quantity = orderTaker.takeOrder();
         price = 6;
     }
 

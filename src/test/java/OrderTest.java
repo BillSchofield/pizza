@@ -18,14 +18,14 @@ public class OrderTest {
 
     @Test
     public void shouldComputeZeroTotalForZeroPizzas() {
-        when(mockOrderTaker.invoke()).thenReturn(0);
+        when(mockOrderTaker.takeOrder()).thenReturn(0);
         Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(0));
     }
 
     @Test
     public void shouldComputeSixTotalForOnePizza() {
-        when(mockOrderTaker.invoke()).thenReturn(1);
+        when(mockOrderTaker.takeOrder()).thenReturn(1);
         Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(6));
     }
