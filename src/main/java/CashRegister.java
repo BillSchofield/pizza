@@ -1,16 +1,17 @@
 import java.io.PrintStream;
 
-public class PizzaManager {
+public class CashRegister {
 
     private Order order;
     private PrintStream printStream;
 
-    public PizzaManager(Order order, PrintStream printStream) {
+    public CashRegister(Order order, PrintStream printStream) {
         this.order = order;
         this.printStream = printStream;
     }
 
     public void printTotal() {
-        printStream.println("Total: $" + order.computeTotal(0));
+        int numberOfCheesePizzas = 0;
+        printStream.println("Total: $" + order.computeTotal());
     }
 }

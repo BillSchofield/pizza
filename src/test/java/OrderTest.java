@@ -6,23 +6,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class OrderTest {
 
-    private Order order;
 
-    @Before
-    public void setUp() throws Exception {
-        order = new Order();
-    }
 
     @Test
     public void shouldComputeZeroTotalForZeroPizzas() {
-
-        int numberOfCheesePizzas = 0;
-        assertThat(order.computeTotal(numberOfCheesePizzas), is(0));
+        Order order = new Order(0);
+        assertThat(order.computeTotal(), is(0));
     }
 
     @Test
     public void shouldComputeSixTotalForOnePizza() {
-        int numberOfCheesePizzas = 1;
-        assertThat(order.computeTotal(numberOfCheesePizzas), is(6));
+        Order order = new Order(1);
+        assertThat(order.computeTotal(), is(6));
     }
 }

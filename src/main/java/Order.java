@@ -1,6 +1,12 @@
 public class Order {
 
-    public int computeTotal(int numberOfCheesePizzas) {
-        return 6 * numberOfCheesePizzas;
+    private int quantity;
+
+    public Order(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int computeTotal() {
+        return 6 * this.quantity;
     }
 }
