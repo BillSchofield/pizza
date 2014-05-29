@@ -3,20 +3,17 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private final ArrayList<Pizza> pizzas;
+    private final ArrayList<Pizza> pizzas = new ArrayList<>();
 
     public Order(OrderTaker orderTaker) throws IOException {
         int quantity = orderTaker.takeOrder();
-        pizzas = new ArrayList<>();
-        for (int i = 0; i < quantity; i++) {
-             pizzas.add(new Pizza(6));
-        }
+        pizzas.add(new Pizza(6, quantity));
     }
 
     public int computeTotal() {
         int totalPrice = 0;
         for (Pizza pizza : pizzas) {
-            totalPrice += pizza.getPrice();
+            totalPrice += pizza.totalPrice();
         }
         return totalPrice;
     }
