@@ -26,9 +26,9 @@ public class OrderTest {
     }
 
     @Test
-    public void shouldComputeSixTotalForOnePizza() throws IOException {
-        when(mockOrderTaker.takeOrder()).thenReturn(1);
+    public void shouldComputeEighteenTotalForThreePizzas() throws IOException {
+        when(mockOrderTaker.takeOrder()).thenReturn(3);
         Order order = new Order(mockOrderTaker);
-        assertThat(order.computeTotal(), is(6));
+        assertThat(order.computeTotal(), is(18));
     }
 }

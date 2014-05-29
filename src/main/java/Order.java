@@ -3,19 +3,21 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private final int price;
     private final ArrayList<Pizza> pizzas;
 
     public Order(OrderTaker orderTaker) throws IOException {
         int quantity = orderTaker.takeOrder();
         pizzas = new ArrayList<>();
         for (int i = 0; i < quantity; i++) {
-             pizzas.add(new Pizza());
+             pizzas.add(new Pizza(6));
         }
-        price = 6;
     }
 
     public int computeTotal() {
-        return price * pizzas.size();
+        int totalPrice = 0;
+        for (Pizza pizza : pizzas) {
+            totalPrice += pizza.getPrice();
+        }
+        return totalPrice;
     }
 }
