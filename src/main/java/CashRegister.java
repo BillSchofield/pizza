@@ -11,7 +11,6 @@ public class CashRegister {
     }
 
     public void printTotal() {
-        int numberOfCheesePizzas = 0;
         printStream.println("Total: $" + order.computeTotal());
     }
 }

@@ -3,20 +3,30 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class OrderTest {
 
 
+    private OrderTaker mockOrderTaker;
+
+    @Before
+    public void setUp() throws Exception {
+        mockOrderTaker = mock(OrderTaker.class);
+    }
 
     @Test
     public void shouldComputeZeroTotalForZeroPizzas() {
-        Order order = new Order(0);
+        when(mockOrderTaker.invoke()).thenReturn(0);
+        Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(0));
     }
 
     @Test
     public void shouldComputeSixTotalForOnePizza() {
-        Order order = new Order(1);
+        when(mockOrderTaker.invoke()).thenReturn(1);
+        Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(6));
     }
 }
