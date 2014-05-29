@@ -11,8 +11,10 @@ public class OrderTaker {
         this.bufferedReader = bufferedReader;
     }
 
-    public int takeOrder() throws IOException {
-        printStream.println("How many cheese pizzas do you want?");
+    public int takeOrder(String pizzaType) throws IOException {
+        printStream.println("How many " +
+                pizzaType +
+                " pizzas do you want?");
         return Integer.parseInt(bufferedReader.readLine());
     }
 

@@ -20,14 +20,14 @@ public class OrderTest {
 
     @Test
     public void shouldComputeZeroTotalForZeroPizzas() throws IOException {
-        when(mockOrderTaker.takeOrder()).thenReturn(0);
+        when(mockOrderTaker.takeOrder("cheese")).thenReturn(0);
         Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(0));
     }
 
     @Test
     public void shouldComputeEighteenTotalForThreePizzas() throws IOException {
-        when(mockOrderTaker.takeOrder()).thenReturn(3);
+        when(mockOrderTaker.takeOrder("cheese")).thenReturn(3);
         Order order = new Order(mockOrderTaker);
         assertThat(order.computeTotal(), is(18));
     }
