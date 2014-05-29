@@ -1,9 +1,8 @@
 public class Pizza {
-    private final int price;
+    private final int price = 6;
     private int quantity;
 
-    public Pizza(int price, int quantity) {
-        this.price = price;
+    public Pizza(int quantity) {
         this.quantity = quantity;
     }
 

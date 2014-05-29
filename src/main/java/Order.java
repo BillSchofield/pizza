@@ -1,16 +1,19 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
 
-    private final ArrayList<Pizza> pizzas = new ArrayList<>();
+    private List<Pizza> pizzas = new ArrayList<>();
 
     public Order(OrderTaker orderTaker) throws IOException {
-        int quantityOfCheesePizzas = orderTaker.takeOrder("cheese");
-        pizzas.add(new Pizza(6, quantityOfCheesePizzas));
+        int quantityOfCheesePizzas = orderTaker.takeOrder();
+        Pizza cheesePizzas = new Pizza(quantityOfCheesePizzas);
+        pizzas.add(cheesePizzas);
+    }
 
-        int quantityOfPepperoniPizzas = orderTaker.takeOrder("pepperoni");
-        pizzas.add(new Pizza(7, quantityOfPepperoniPizzas));
+    public Order(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
     }
 
     public int computeTotal() {

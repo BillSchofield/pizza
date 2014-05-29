@@ -7,8 +7,8 @@ public class PizzaTest {
 
     @Test
     public void shouldHaveTotalPriceOfQuantityTimesPrice() {
-        Pizza pizza = new Pizza(3, 4);
-        assertThat(pizza.totalPrice(), is(12));
+        Pizza pizza = new Pizza(4);
+        assertThat(pizza.totalPrice(), is(24));
     }
 
 }

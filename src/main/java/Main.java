@@ -5,7 +5,8 @@ import java.io.InputStreamReader;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Order order = new Order(new OrderTaker(System.out, new BufferedReader(new InputStreamReader(System.in))));
+        OrderTaker orderTaker = new OrderTaker(System.out, new BufferedReader(new InputStreamReader(System.in)));
+        Order order = new Order(orderTaker);
         CashRegister cashRegister = new CashRegister(order, System.out);
 
         cashRegister.printTotal();
